@@ -89,6 +89,7 @@ const VideoChat = () => {
             EndCall(userId)
             if (remoteVideoRef.current) {
                 remoteVideoRef.current.srcObject = null;
+
             }
 
         });
@@ -249,7 +250,7 @@ const VideoChat = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 p-6 overflow-y-auto">
+        <div className="h-[100vh] bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 p-6 overflow-y-auto">
             <div className="max-w-6xl mx-auto">
                 {/* Header Section */}
                 <div className="mb-8">
@@ -292,9 +293,9 @@ const VideoChat = () => {
                 {/* Video Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {/* Local Video */}
-                    <div className="backdrop-blur-md bg-white/5 rounded-2xl p-4 border border-white/10">
+                    <div className="backdrop-blur-md bg-white/5 rounded-2xl p-4 border border-white/10 overflow-hidden">
                         <h3 className="text-lg font-medium mb-3 text-gray-300">My Screen</h3>
-                        <div className="relative aspect-video bg-gray-800 rounded-lg overflow-hidden">
+                        <div className="relative aspect-video bg-gray-800 rounded-lg">
                             <video
                                 ref={localVideoRef}
                                 autoPlay
@@ -309,9 +310,9 @@ const VideoChat = () => {
                     </div>
 
                     {/* Remote Video */}
-                    <div className="backdrop-blur-md bg-white/5 rounded-2xl p-4 border border-white/10">
+                    <div className="backdrop-blur-md bg-white/5 rounded-2xl p-4 border border-white/10 overflow-hidden">
                         <h3 className="text-lg font-medium mb-3 text-gray-300">Remote Video</h3>
-                        <div className="relative aspect-video bg-gray-800 rounded-lg overflow-hidden">
+                        <div className="relative aspect-video bg-gray-800 rounded-lg ">
                             <video
                                 ref={remoteVideoRef}
                                 autoPlay
@@ -352,7 +353,7 @@ const VideoChat = () => {
                             className={`px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-medium 
                                 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-blue-500/20 
                                 transition-all duration-300 transform hover:-translate-y-0.5 
-                                ${!remoteVideoRef.current?.srcObject ? 'hidden' : ''}`}
+                                ${!remoteVideoRef.current.srcObject ? 'hidden' : ''}`}
                         >
                             End Call
                         </button>
