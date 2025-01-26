@@ -353,7 +353,7 @@ const VideoChat = () => {
                             className={`px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-medium 
                                 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-blue-500/20 
                                 transition-all duration-300 transform hover:-translate-y-0.5 
-                                ${!remoteVideoRef.current.srcObject ? 'hidden' : ''}`}
+                                ${!remoteVideoRef.current?.srcObject ? 'hidden' : ''}`}
                         >
                             End Call
                         </button>
