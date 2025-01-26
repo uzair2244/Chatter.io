@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    overflow: hidden;
+    /* To prevent scrollbars from showing when particles move */
+    position: relative;
+}
+
+.dust {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    animation: dustAnimation 3s infinite;
+}
+
+@keyframes dustAnimation {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1) translate(20px, 20px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0) translate(40px, 40px);
+        opacity: 0;
+    }
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    width: 300px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-card h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+    color: #fff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.login-card .wallet-heading {
+    color: #ddd;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.login-card .wallet-address {
+    color: #ddd;
+    font-size: 16px;
+    overflow-wrap: break-word;
+}
+
+.login-button,
+.logout-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    color: #fff;
+    background: linear-gradient(45deg, #f6851b, #ff5722);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.login-button::before,
+.logout-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: #fff;
+    transition: all 0.4s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+}
+
+.login-button:hover,
+.logout-button:hover {
+    transform: scale(1.05);
+}
+
+.login-button:hover::before,
+.logout-button:hover::before {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.logout-button {
+    background: linear-gradient(45deg, #f44336, #e91e63);
+}
+
+.error {
+    margin-top: 10px;
+    color: #f44336;
+    font-size: 14px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #f1783c;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: flex;
+    align-items: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
